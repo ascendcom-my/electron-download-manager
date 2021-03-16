@@ -258,8 +258,13 @@ const bulkDownload = (options, callback) => {
     });
 };
 
+const updateSettings = (opts = {}) => {
+    downloadFolder = opts.downloadFolder || downloadFolder;
+};
+
 module.exports = {
     register,
     download,
-    bulkDownload
+    bulkDownload,
+    updateSettings
 };
