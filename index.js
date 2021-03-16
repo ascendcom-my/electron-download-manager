@@ -136,7 +136,7 @@ const download = (options, callback) => {
     options = Object.assign({}, { path: '' }, options);
 
     const request = net.request(options.url);
-    
+
     const filename = decodeURIComponent(path.basename(options.url));
     const url = decodeURIComponent(options.url);
 
@@ -232,7 +232,7 @@ const bulkDownload = (options, callback) => {
     let errors = [];
 
     options.urls.forEach((url) => {
-        download({ url, path: options.path, onProgress: options.onProgress }, function (error, itemInfo) {
+        download({ url, path: options.path, onProgress: options.onProgress, downloadFolder: options.downloadFolder }, function (error, itemInfo) {
 
             if (error) {
                 errors.push(itemInfo.url);
